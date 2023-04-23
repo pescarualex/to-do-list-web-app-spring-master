@@ -1,0 +1,477 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+
+
+
+
+
+
+
+
+.logo img{
+    height: 43px;
+}
+
+.vertical-menu {
+    width: 50px;
+    position: fixed;
+    height: 100vh;
+    background-color: black;
+  }
+  
+  .vertical-menu a {
+    background-color: black;
+    color: white;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+
+  .vertical-menu a.active {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 23px;
+    border: none;
+  }
+
+  .vertical-menu a:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+
+
+
+
+
+
+.create-task-button-countainer {
+    text-align: center;
+}
+
+.create-task-button {
+    background-color: black;
+    color: white;
+    display: block;
+    padding: 14px;
+    font-size: 25px;
+    border: none;
+}
+
+.create-task-button-countainer :hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+#create-task-dialog {
+    background-color: #f2f2f2;
+    width: 700px;
+    height: 850px;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    padding: 0;
+    position: fixed;
+    top: 50px;
+    z-index: 1;
+  }
+
+  /* The Close Button */
+.close {
+    color: #aaaaaa;
+    padding: 10px;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+
+
+
+
+
+
+  .creating-task-form {
+    padding: 20px 10px;
+    border-radius: 5px;
+
+  }
+
+  #create-task-dialog h3 {
+    padding-left: 10px;
+    margin-top: 10px;
+ }
+
+  .creating-task-form #task-description, .task-title-field, input[type=date] {
+    width: 93%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
+  }
+
+  .creating-task-form label {
+    position: relative;
+    left: 5px;
+    top: 10px;
+  }
+
+  .creating-task-form .task-title-field {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    overflow-y: scroll;
+  }
+
+  #create-task-form #countCharactersTitle {
+    position: absolute;
+    right: 20px;
+    top: 175px;
+  }
+
+
+  .creating-task-form #task-description {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    overflow-y: scroll;
+  }
+
+  #create-task-form #countCharactersDescription {
+    position: absolute;
+    right: 20px;
+    bottom: 158px;
+  }
+
+
+  .creating-task-form input[type=date] {
+    width: 100%;
+    height: 30px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+  }
+
+  .creating-task-form input[type=submit] {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .creating-task-form input[type=submit]:hover {
+    background-color: #555555;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  .task-card {
+    width: 245px;
+    height: 300px;
+    position: relative;
+    padding: 5px;
+    margin: 5px;
+    left: 55px;
+    float: left;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: -1;
+  }
+
+  .task-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+
+
+.task-title { 
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: auto;
+    max-height: 90px;
+    max-width: 20rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.task-description {
+    width: 100%;
+    height: auto;
+    max-height: 135px;
+    max-width: 20rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 5px;
+
+}
+
+.task-card .task-deadline {
+  display: flex;
+  width: 95%;
+  height: 7%;
+  position: absolute;
+  bottom: 23px;
+}
+
+.task-card .task-options {
+  display: flex;
+  width: 95%;
+  position: absolute;
+  bottom: 0;
+}
+
+.task-options div {
+  margin-right: 3px;
+}
+
+.task-options #expand-task-icon {
+  display: flex;
+  background-color: white;
+  border: none;
+  position: absolute;
+  right: 2px;
+  padding: 3px 5px;
+  z-index: 1;
+}
+
+
+#tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+
+
+  position: relative;
+  bottom: 30px;
+  left: 80%;
+  margin-left: -30px;
+}
+
+#expand-task-icon:hover + #tooltiptext {
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+#expanded-task-dialog {
+  background-color: #f2f2f2;
+  width: 850px;
+  height: 850px;
+  position: fixed;
+  margin-left: 150px;
+  top: 50px;
+  /* left: 100px; */
+
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* margin: auto; */
+  padding: 10px;
+  position: fixed;
+
+  top: 50px;
+  z-index: 1;
+}
+
+#expanded-task-dialog .entirely-task-deadline p {
+  font-size: 16px;
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  border: 1px solid #555555;
+  text-align: center;
+  padding: 12px 26px;
+}
+
+
+
+
+
+
+
+
+#expanded-task-dialog .save-task {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  background-color: #f2f2f2;
+  border: 1 px solid black;
+  padding: 12px 26px;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#expanded-task-dialog .save-task:hover {
+  background-color: #555555;
+  color: white;
+}
+
+#expanded-task-dialog h3 {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  margin-top: 10px;
+}
+
+.entirely-task-title-countainer label {
+  position: relative;
+  left: 5px;
+  top: 50px;
+}
+
+/* .entirely-task-title-countainer {
+  border-bottom: 1px solid black;
+} */
+
+.entirely-task-title-countainer .entirely-task-title {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  top: 30px;
+  border: 2px solid #ccc;;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.entirely-task-title-countainer #remainingCharactTitle {
+  position: absolute;
+  right: 20px;
+  top: 155px;
+}
+
+.entirely-task-description-countainer label {
+  position: relative;
+  left: 5px;
+  top: 55px;
+}
+
+.entirely-task-description-countainer .entirely-task-description {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  padding: 5px;
+  top: 50px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  border: 2px solid #ccc;;
+}
+
+.entirely-task-description-countainer #remainingCharactDescription {
+  position: absolute;
+  right: 20px;
+  bottom: 120px;
+}
+
+
+
+/*  */
+
+/*  */
