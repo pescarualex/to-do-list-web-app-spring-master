@@ -18,8 +18,6 @@ function addClassActive(link) {
     activeLink.classList.add('active');
   }
 
-
-
   function addClassSelected(id) {
 
 
