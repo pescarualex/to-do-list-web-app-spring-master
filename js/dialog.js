@@ -1,32 +1,9 @@
-(function() {    
-    var dialog = document.getElementById('create-task-dialog');    
-    document.getElementById('show-create-task-dialog').onclick = function() {    
-        dialog.show();    
-    };    
-    document.getElementById('close').onclick = function() {    
-        dialog.close();    
-    };
-    document.getElementById('create').onclick = function() {    
-        dialog.close();    
-    };
-})();   
+  
 
 
 let currentDate = new Date().toJSON().slice(0, 10);
 const dateControl = document.querySelector('input[type="date"]');
 dateControl.value = currentDate;
-
-
-function openEntirelyTask() {
-    const dialog = document.getElementById('expanded-task-dialog'); 
-    dialog.show();
-}
-
-function closeExpandedTaskDialog() {
-    const dialog = document.getElementById('expanded-task-dialog'); 
-        dialog.close();
-        window.history.pushState({}, document.title, window.location.pathname);
-}
 
 
 // Count characters in Create a new Task dialog
@@ -72,5 +49,8 @@ function titleLengthCheck() {
     count.innerHTML = "Characters left: " + (2000 - descriptionLength);
   }
 // --------------------------------
+
+
+
 
 

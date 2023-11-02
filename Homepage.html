@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
- <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>All Tasks</title>
+    <title>Homepage</title>
 
-    <script src="//code.jquery.com/jquery-3.6.4.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
@@ -26,28 +26,21 @@
             <div class="logo">
                 <img src="img/logo-tasks.jpeg" alt="To-Do List">
             </div>
+
             <a href="Homepage.html" class="active"><i class="fa fa-home"></i></a>
+    
             <div class="create-task-button-countainer">
                 <button class="create-task-button" id="show-create-task-dialog" data-bs-toggle="modal" data-bs-target="#create-task-dialog"><i class="fa fa-plus" aria-hidden="true"></i></button>
             </div>
         </nav>
     </div>
 
-    <div class="all-tasks-tab">
-        <nav class="nav nav-pills flex-column flex-sm-row nav-bar-tasks-period">
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link1" aria-current="page" href="index.html">All Tasks</a>
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link2" href="index.html">Tasks to do this week</a>
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link3" href="index.html">Tasks to do next week</a>
-        </nav>
-    </div>
-
-
-
-    <div id="all-content" class="clearfix">
+    
+    <div class="homepage-content">
         <div class="modal fade" id="create-task-dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-              
+            
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h3>Create New Task</h3>
@@ -57,7 +50,7 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form id="create-task-form">
-                            <label for="title-c">* Title:</label>
+                            <label for="task-title-field">* Title:</label>
                             <textarea class="task-title-field" id="title-c" minlength="5" maxlength="250" placeholder="mim: 5, max: 250 characters" required onkeyup="countCharactersTitle()" onkeydown="countCharactersTitle()" onclick="countCharactersTitle()"></textarea>
                             <span id="countCharactersTitle"></span>
         
@@ -79,51 +72,35 @@
                 </div>
             </div>
         </div>
-        
-        <div id="tasks-content">
-            <div id="existing-tasks-fluid"></div>
 
-            <div id="expanded-task-dialog">
-                <div class="modal fade" id="expand-task" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
 
+
+        <div class="all-tasks-card">
+            <div class="all-tasks-card-countainer">
+
+                <div class="all-tasks-title">
+                    <h6>
+                        Total Tasks
+                    </h6>
+                </div>
+
+                <div class="all-tasks-number">
+                    <span id="tasks-number"></span>
+                </div>
+
+                <div class="all-tasks-options">
+                    <div>
+                        <a href="index.html" class="display-all-tasks" data-toggle="tooltip" data-placement="top" title="Go to All Tasks">All Tasks</a>
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
     </div>
 
-    <nav id="pagination" class="page-allignment">
-        <ul id="pagination-numbers">
-            <li href="#" class="previous-page">&laquo;</li>
-            <ul id="pagination-marks">
-
-            </ul>
-            <li href="#" class="next-page">&raquo;</li>
-        </ul>
-    </nav>
-
-    <!-- <nav aria-label="pagination">
-        <ul id="pagination" class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-          </li>
-
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav> -->
-
-    
-
-        
-    <script src="js/addClasses.js"></script>
     <script src="js/dialog.js"></script>
+    <script src="//code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/homepage.js" type="module"></script>
     <script src="js/tasks.js" type="module"></script>
-
-
-
 
 </body>
 </html>

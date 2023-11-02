@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+#all-content {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+
+
+
+
+/* Navbar and buttons */
+
+.logo img{
+    height: 40px;
+    width: 100%;
+}
+
+.navbar-parent {
+  width: 55px;
+  position: fixed;
+}
+
+.navbar {
+  width: 55px;
+  height: 100vh;
+}
+  
+.navbar a {
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.navbar a.active {
+  color: white;
+  text-align: center;
+  font-size: 23px;
+  border: none;
+}
+
+.navbar a:hover {
+  color: white;
+  background-color: green;
+}
+
+.create-task-button-countainer {
+  text-align: center;
+}
+
+.create-task-button {
+  color: white;
+  background-color: inherit;
+  padding: 14px;
+  font-size: 25px;
+  border: none;
+}
+
+.create-task-button-countainer :hover {
+  color: white;
+  background-color: green;
+}
+
+
+
+/* Create Task modal */
+
+.modal-content {
+    width: 100%;
+    height: 850px;
+    border: none;
+  }
+  
+  .modal-content .close {
+    border: none;
+    background-color: inherit;
+  }
+  
+  .modal-content .close:hover {
+    color: white;
+    background-color: green;
+  }
+  
+  .modal-header h3 {
+  text-align: left;
+  font-size: 20px;
+  }
+  
+  .modal-header .close {
+    font-size: 20px;
+  }
+  
+  .modal-content .task-title-field, #task-description, input[type=date] {
+    width: 100%;
+    padding: 8px 10px;
+  }
+  
+  .modal-content label {
+    font-size: 15px;
+    left: 5px;
+    top: 10px;
+  }
+  
+  .modal-content .task-title-field {
+    position: relative;
+    font-size: 15px;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+    overflow-y: scroll;
+  }
+  
+  /* placeholder size */
+  
+  .modal-content #countCharactersTitle {
+    font-size: 10px;
+    position: absolute;
+    right: 20px;
+    top: 158px;
+  }
+  
+  .modal-content #task-description {
+    position: relative;
+    font-size: 15px;
+    width: 100%;
+    height: 370px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+    overflow-y: scroll;
+  }
+  
+  .modal-content #countCharactersDescription {
+    font-size: 10px;
+    position: absolute;
+    right: 20px;
+    bottom: 103px;
+  }
+  
+  /* placeholder size */
+  
+  .modal-content input[type=date] {
+    width: 100%;
+    height: 30px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+  }
+  
+  
+  ::-webkit-input-placeholder {
+    font-size: 10px;
+  }
+  
+  .modal-footer button {
+    font-size: 15px;
+    border: none;
+    background-color: inherit;
+    color: black;
+  }
+  
+  .modal-footer button:hover {
+    color: white;
+    background-color: green;
+  }
+
+
+
+
+
+  .all-tasks-card {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    padding: 5px;
+    margin: 5px;
+    margin-left: 60px;
+    float: left;
+    background: rgb(117,154,77, 0.5);
+    background: linear-gradient(90deg, rgba(117,154,77,1) 0%, rgba(14,245,21,0.4623818277310925) 5%, rgba(0,255,193,1) 100%);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: -1;
+  }
+  
+  .all-tasks-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(83, 83, 83, 0.421);
+  }
+
+  .all-tasks-title {
+    border-bottom: 1px solid black;
+  }
