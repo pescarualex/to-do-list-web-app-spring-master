@@ -60,7 +60,7 @@ window.ToDoList = {
                     for (let i = 0; i < totalPages; i++) {
                     const pageIndex = i + 1;
                     $("#pagination-marks").append(`
-                        <li class="page-button" onclick="addClassSelected('mark${i+1}');" id="mark${i + 1}" data-page-index='${pageIndex}'>${pageIndex}</li>
+                    <a href="#" class="page-button" onclick="addClassSelected('mark${i+1}');" id="mark${i + 1}" data-page-index='${pageIndex}'>${pageIndex}</a>
                     `);
                     }
                 },

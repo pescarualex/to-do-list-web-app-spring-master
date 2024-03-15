@@ -35,11 +35,11 @@
 
     <div class="all-tasks-tab">
         <nav class="nav nav-pills flex-column flex-sm-row nav-bar-tasks-period">
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link1" aria-current="page" href="index.html">All Tasks</a>
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link1" aria-current="page" href="index.html">Tasks to do this day</a>
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link2" href="index.html">Tasks to do this week</a>
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link3" href="index.html">Tasks to do next week</a>
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link3" href="index.html">Tasks to do this month</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link1" class="top-bar" aria-current="page" href="index.html">All Tasks</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link2" class="top-bar" aria-current="page" href="index.html">Tasks to do this day</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link3" class="top-bar" href="index.html">Tasks to do this week</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link4" class="top-bar" href="index.html">Tasks to do next week</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="link5" class="top-bar" href="index.html">Tasks to do this month</a>
         </nav>
     </div>
 
@@ -95,27 +95,15 @@
         </div>   
     </div>
 
-    <nav id="pagination" class="page-allignment">
-        <ul id="pagination-numbers">
-            <li href="#" class="previous-page">&laquo;</li>
-            <ul id="pagination-marks">
 
-            </ul>
-            <li href="#" class="next-page">&raquo;</li>
-        </ul>
-    </nav>
 
-    <!-- <nav aria-label="pagination">
-        <ul id="pagination" class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-          </li>
+    <div id="pagination" class="pagination">
+        <a href="#">&laquo;</a>
+        <span id="pagination-marks">
 
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav> -->
+        </span>
+        <a href="#">&raquo;</a>
+    </div>
 
     
 
