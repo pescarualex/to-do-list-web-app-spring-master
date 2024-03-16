@@ -38,41 +38,69 @@ window.ToDoList = {
     
 
 
-    displayPage: function (page){
+    // displayPage: function (page){
 
+    //     let currentPage = 0;
+    //     let pageSize = 20;
+
+    //     $.ajax({
+    //           url: ToDoList.API_URL + "?page=" + page + "&size=" + pageSize, 
+    //           method: "GET",
+    //           dataType: "json",
+    //           success: function(pageable) {
+
+    //             $("#all-content #existing-tasks-fluid").empty();
+    //             $.each(pageable.content, function(index, task) {
+    //               $("#existing-tasks-fluid").append(ToDoList.getTaskRow(task));
+    //             });
+
+
+    //             var totalPages = pageable.totalPages;
+    //             $("#pagination-marks").empty();
+    //                 for (let i = 0; i < totalPages; i++) {
+    //                 const pageIndex = i + 1;
+    //                 $("#pagination-marks").append(`
+    //                 <a href="#" class="page-btn" id="mark${i + 1} page-btn" data-page-index='${pageIndex}'>${pageIndex}</a>
+    //                 `);
+    //                 }
+    //             },
+    //         error: function(jqXHR, textStatus, errorThrown) {
+    //             console.log(textStatus, errorThrown);
+    //         }
+    //     });
+    // }
+    
+    displayPage: async function (page) {
         let currentPage = 0;
         let pageSize = 20;
-
-        $.ajax({
-              url: ToDoList.API_URL + "?page=" + page + "&size=" + pageSize, // adresa URL a endpoint-ului de la backend care returnează o pagină de sarcini
-              method: "GET",
-              dataType: "json",
-              success: function(pageable) {
-                // afișează lista de sarcini pe pagina curentă
-                $("#all-content #existing-tasks-fluid").empty();
-                $.each(pageable.content, function(index, task) {
-                  $("#existing-tasks-fluid").append(ToDoList.getTaskRow(task));
-                });
-
-                // afișează butoanele de paginare
-                var totalPages = pageable.totalPages;
-                $("#pagination-marks").empty();
-                    for (let i = 0; i < totalPages; i++) {
-                    const pageIndex = i + 1;
-                    $("#pagination-marks").append(`
-                    <a href="#" class="page-button" onclick="addClassSelected('mark${i+1}');" id="mark${i + 1}" data-page-index='${pageIndex}'>${pageIndex}</a>
-                    `);
-                    }
-                },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+    
+        try {
+            const response = await $.ajax({
+                url: ToDoList.API_URL + "?page=" + page + "&size=" + pageSize,
+                method: "GET",
+                dataType: "json"
+            });
+    
+            $("#all-content #existing-tasks-fluid").empty();
+            $.each(response.content, function(index, task) {
+                $("#existing-tasks-fluid").append(ToDoList.getTaskRow(task));
+            });
+    
+            // afișează butoanele de paginare
+            var totalPages = response.totalPages;
+            $("#pagination-marks").empty();
+            for (let i = 0; i < totalPages; i++) {
+                const pageIndex = i + 1;
+                $("#pagination-marks").append(`
+                    <a href="#" class="_1" id="page-btn" data-page-index='${pageIndex}'>${pageIndex}</a>
+                `);
             }
-        });
-
-
-
-
-    },
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+    ,
 
     getTask: function(id) {
         $.ajax({
@@ -288,18 +316,18 @@ window.ToDoList = {
 
 
         //move pages
-        $("#pagination").on("click", ".page-button", function() {
+        $("#pagination").on("click", "#page-btn", function() {
             let page = $(this).index();
             let currentPage = page;
             ToDoList.displayPage(currentPage);
         });
 
 
-        $(".previous-page").on("click", function(){
-            let page = $(this).index();
-            let currentPage = page - 1;
-            ToDoList.displayPage(currentPage);
-        });
+        // $(".previous-page").on("click", function(){
+        //     let page = $(this).index();
+        //     let currentPage = page - 1;
+        //     ToDoList.displayPage(currentPage);
+        // });
 
 
 

@@ -10,6 +10,8 @@ function addClassActive(link) {
   
     // salveaza ID-ul link-ului activ in localStorage
     localStorage.setItem('activeLink', link.id);
+
+    console.log("added 'active' to " + link);
   }
   
   // verifica daca exista un link activ in localStorage si adauga clasa "active" la acel link
@@ -18,18 +20,22 @@ function addClassActive(link) {
     activeLink.classList.add('active');
   }
 
-  function addClassSelected(id) {
 
 
-    console.log("clicked", id);
-  };
+document.body.addEventListener('click', function(event) {
+  if (event.target.classList.contains('class')) {
+    document.querySelectorAll('.class').forEach(function(button) {
+        button.removeAttribute("class");
+        // button.removeAttribute("class");
+    }); 
+    console.log(event.target.parentElement.querySelector("#pagination-marks a"));
+    event.target.setAttribute("class", "selected");
+    console.log("work");
+    console.log(event.target);
+    }
+  });
 
 
-
-
-
-
-  
 
 
 
