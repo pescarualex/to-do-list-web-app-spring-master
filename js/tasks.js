@@ -36,40 +36,6 @@ window.ToDoList = {
     },
 
     
-
-
-    // displayPage: function (page){
-
-    //     let currentPage = 0;
-    //     let pageSize = 20;
-
-    //     $.ajax({
-    //           url: ToDoList.API_URL + "?page=" + page + "&size=" + pageSize, 
-    //           method: "GET",
-    //           dataType: "json",
-    //           success: function(pageable) {
-
-    //             $("#all-content #existing-tasks-fluid").empty();
-    //             $.each(pageable.content, function(index, task) {
-    //               $("#existing-tasks-fluid").append(ToDoList.getTaskRow(task));
-    //             });
-
-
-    //             var totalPages = pageable.totalPages;
-    //             $("#pagination-marks").empty();
-    //                 for (let i = 0; i < totalPages; i++) {
-    //                 const pageIndex = i + 1;
-    //                 $("#pagination-marks").append(`
-    //                 <a href="#" class="page-btn" id="mark${i + 1} page-btn" data-page-index='${pageIndex}'>${pageIndex}</a>
-    //                 `);
-    //                 }
-    //             },
-    //         error: function(jqXHR, textStatus, errorThrown) {
-    //             console.log(textStatus, errorThrown);
-    //         }
-    //     });
-    // }
-    
     displayPage: async function (page) {
         let currentPage = 0;
         let pageSize = 20;
@@ -98,9 +64,48 @@ window.ToDoList = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+
+
+
+
+    displayThisDayTasks: async function (page) {
+        let currentPage = 0;
+        let pageSize = 20;
     
-    ,
+        try {
+            const response = await $.ajax({
+                url: ToDoList.API_URL + "/this-day-tasks" + "?page=" + page + "&size=" + pageSize,
+                method: "GET",
+                dataType: "json"
+            });
+    
+            $("#athis-day-tasks-content #all-tasks-this-day").empty();
+            $.each(response.content, function(index, task) {
+                console.log(response.content);
+                $("#all-tasks-this-day").append(ToDoList.getTaskRow(task));
+            });
+    
+            // afișează butoanele de paginare
+            var totalPages = response.totalPages;
+            $("#this-day-pag-num").empty();
+            for (let i = 0; i < totalPages; i++) {
+                const pageIndex = i + 1;
+                $("#this-day-pag-num").append(`
+                    <a href="#" class="_1" id="page-btn" data-page-index='${pageIndex}'>${pageIndex}</a>
+                `);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+
+
+
+
+    
+    
 
     getTask: function(id) {
         $.ajax({
@@ -272,6 +277,15 @@ window.ToDoList = {
             ToDoList.updateTask(id, checkboxChecked);
         });
 
+        $('#all-tasks-this-day').delegate('.mark-done', 'change', function (event) {
+            event.preventDefault();
+
+            const id = $(this).data('id');
+            const checkboxChecked = $(this).is(':checked');
+
+            ToDoList.updateTask(id, checkboxChecked);
+        });
+
 
         let title = "";
         let description = "";
@@ -349,6 +363,7 @@ export function createTask(){
 }
 
 ToDoList.displayPage(0);
+ToDoList.displayThisDayTasks(0);
 ToDoList.bindEvents();
 
 
