@@ -59,7 +59,7 @@
     justify-content: center;
   }
 
-  #total-tasks-number{
+  .total-tasks-number{
     border-radius: 50%;
     padding: 5px;
     background-color: #0BDA51;
