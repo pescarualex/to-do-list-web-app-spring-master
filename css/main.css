@@ -424,44 +424,9 @@ bottom: 0;
 
 /* Stilizarea elementelor de paginare */
 
-/* TODOD: sa rezolvi maine paginarea */
-/* si sa adaugi si aici */
-/* #pagination {
-  position: fixed;
-  bottom: 25px;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 25%;
-  height: 40px;
-  width: 50%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  border-radius: 10px;
-  display: flex;
-
-}
-
-
-
-
-#pagination a {
-  display: inline-block;
-  color: black;
-  margin: 5px 10px;
-  font-size: 20x;
-  font-weight: bold;
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-#pagination a:hover {
-  color: green;
-} */
-
-
 #pagination {
   position: fixed;
-  bottom: 25px;
+  bottom: 15px;
   justify-content: center;
   margin-top: 10px;
   margin-left: 25%;

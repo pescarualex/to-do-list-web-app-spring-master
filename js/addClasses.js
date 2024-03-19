@@ -1,3 +1,26 @@
+window.onload = function() {
+  let url = window.location.href;
+  let hashIndex = url.indexOf("#");
+  if (hashIndex !== -1) {
+      let tabId = url.substring(hashIndex + 1);
+      let tabElement = document.getElementById(tabId);
+      if (tabElement) {
+          // Sterge clasa "active" de la toate tab-urile
+          let links = document.querySelectorAll('.nav-link');
+          links.forEach(function(link) {
+              link.classList.remove('active');
+          });
+
+          // Adaugă clasa "active" tab-ului corespunzător
+          tabElement.classList.add("active");
+      }
+  }
+};
+
+
+
+
+
 function addClassActive(link) {
     // sterge clasa "active" de pe toate link-urile din lista
     let links = document.querySelectorAll('.nav-link');
@@ -10,7 +33,6 @@ function addClassActive(link) {
   
     // salveaza ID-ul link-ului activ in localStorage
     localStorage.setItem('activeLink', link.id);
-
     console.log("added 'active' to " + link);
   }
   
@@ -19,6 +41,11 @@ function addClassActive(link) {
     let activeLink = document.querySelector('#' + localStorage.getItem('activeLink'));
     activeLink.classList.add('active');
   }
+
+
+
+
+
 
 
 

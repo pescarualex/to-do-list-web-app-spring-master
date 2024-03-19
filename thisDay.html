@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Tasks</title>
+
+    <script src="//code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="navbar-parent">
+        <nav class="navbar navbar-expand-sm flex-column navbar-dark bg-dark">
+            <div class="logo">
+                <img src="img/logo-tasks.jpeg" alt="To-Do List">
+            </div>
+            <a href="Homepage.html" class="active"><i class="fa fa-home"></i></a>
+            <div class="create-task-button-countainer">
+                <button class="create-task-button" id="show-create-task-dialog" data-bs-toggle="modal" data-bs-target="#create-task-dialog"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="all-tasks-tab">
+        <nav class="nav nav-pills flex-column flex-sm-row nav-bar-tasks-period">
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="all-tasks" class="top-bar" aria-current="page" href="allTasks.html">All Tasks</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="this-day" class="top-bar" aria-current="page" href="thisDay.html">Tasks for this day</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="this-week" class="top-bar" href="thisWeek.html">Tasks for this week</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="next-week" class="top-bar" href="nextWeek.html">Tasks for next week</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="this-month" class="top-bar" href="thisMonth.html">Tasks for this month</a>
+        </nav>
+    </div>
+
+
+
+    <div id="all-content" class="clearfix">
+        <div class="modal fade" id="create-task-dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h3>Create New Task</h3>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+                    
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id="create-task-form">
+                            <label for="title-c">* Title:</label>
+                            <textarea class="task-title-field" id="title-c" minlength="5" maxlength="250" placeholder="mim: 5, max: 250 characters" required onkeyup="countCharactersTitle()" onkeydown="countCharactersTitle()" onclick="countCharactersTitle()"></textarea>
+                            <span id="countCharactersTitle"></span>
+        
+        
+                            <label for="task-description">* Description:</label>
+                            <textarea id="task-description" class="descriptionChar" minlength="5" maxlength="2000" placeholder="mim: 5, max: 2000 characters" required onkeyup="countCharactersDescription()" onkeydown="countCharactersDescription()" onclick="countCharactersDescription()"></textarea>
+                            <span id="countCharactersDescription"></span>
+                        
+                            <label for="task-deadline" required>Deadline:</label>
+                            <input type="date" id="task-deadline">
+                        </form>
+                    </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">                  
+                    <button type="button" id="create" class="btn btn-secondary" data-bs-dismiss="modal">Create Task</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        <div id="tasks-content">
+            <div id="all-tasks-this-day"></div>
+
+            <div id="expanded-task-dialog">
+                <div class="modal fade" id="expand-task" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+
+
+    <div id="pagination" class="pagination">
+        <a href="#">&laquo;</a>
+        <div id="pagination-marks">
+
+        </div>
+        <a href="#">&raquo;</a>
+    </div>
+
+    
+
+        
+    <script src="js/addClasses.js"></script>
+    <script src="js/dialog.js"></script>
+    <script src="js/tasks.js" type="module"></script>
+
+
+
+
+</body>
+</html>
