@@ -54,7 +54,7 @@
 
   .all-tasks{
     display: flex;
-    font-size: 30px;
+    font-size: 25px;
     align-items: center;
     justify-content: center;
   }
@@ -63,6 +63,7 @@
 
   .tasks-number .total-tasks-number{
     width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -70,7 +71,14 @@
     background-color: #0BDA51;
     color: white;
     font-size: 30px;
+  }
 
+  .tasks-number .overdue-tasks {
+    background-color: red;
+  }
+
+ .tasks-number .this-day-tasks {
+    background-color: rgb(253, 238, 22);
   }
 
   .table-body {
