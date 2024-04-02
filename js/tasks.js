@@ -32,6 +32,7 @@ window.ToDoList = {
             data: JSON.stringify(body)
         }).done(function (){
             ToDoList.displayPage(0);
+            window.location.reload();
         });
     },
 

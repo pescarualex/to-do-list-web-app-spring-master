@@ -42,7 +42,7 @@
     text-align: center;
   }
 
-  .all-tasks-number {
+  .tasks-number {
     position: relative;
     display: flex;
     padding: 5px 30px;
@@ -59,14 +59,18 @@
     justify-content: center;
   }
 
-  .total-tasks-number{
+
+
+  .tasks-number .total-tasks-number{
+    width: 50px;
     border-radius: 50%;
-    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #0BDA51;
     color: white;
     font-size: 30px;
-    align-items: center;
-    justify-content: center;
+
   }
 
   .table-body {

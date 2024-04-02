@@ -20,6 +20,8 @@ $(document).ready(function() {
   });
 });
 
+
+
   $.ajax({
     url: API_URL + '/total-task-number/all-tasks-titles',
     method: 'GET',
