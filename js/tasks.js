@@ -81,10 +81,41 @@ window.ToDoList = {
                 dataType: "json"
             });
     
-            $("#athis-day-tasks-content #all-tasks-this-day").empty();
+            $("#this-day-tasks-content #all-tasks-this-day").empty();
             $.each(response.content, function(index, task) {
                 console.log(response.content);
                 $("#all-tasks-this-day").append(ToDoList.getTaskRow(task));
+            });
+    
+            // afișează butoanele de paginare
+            var totalPages = response.totalPages;
+            $("#this-day-pag-num").empty();
+            for (let i = 0; i < totalPages; i++) {
+                const pageIndex = i + 1;
+                $("#this-day-pag-num").append(`
+                    <a href="#" class="_1" id="page-btn" data-page-index='${pageIndex}'>${pageIndex}</a>
+                `);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    displayOverdueTasks: async function (page) {
+        let currentPage = 0;
+        let pageSize = 20;
+    
+        try {
+            const response = await $.ajax({
+                url: ToDoList.API_URL + "/overdue-tasks" + "?page=" + page + "&size=" + pageSize,
+                method: "GET",
+                dataType: "json"
+            });
+    
+            $("#overdue-content #overdue-tasks").empty();
+            $.each(response.content, function(index, task) {
+                console.log(response.content);
+                $("#overdue-tasks").append(ToDoList.getTaskRow(task));
             });
     
             // afișează butoanele de paginare
@@ -365,6 +396,7 @@ export function createTask(){
 
 ToDoList.displayPage(0);
 ToDoList.displayThisDayTasks(0);
+ToDoList.displayOverdueTasks(0);
 ToDoList.bindEvents();
 
 

@@ -35,7 +35,7 @@
 
     <div class="all-tasks-tab">
         <nav class="nav nav-pills flex-column flex-sm-row nav-bar-tasks-period">
-            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="overdue-tasks" class="top-bar" aria-current="page" href="overdue.html">Overdue Tasks</a>
+            <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="overdue-tasks-header" class="top-bar" aria-current="page" href="overdue.html">Overdue Tasks</a>
             <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="this-day" class="top-bar" aria-current="page" href="thisDay.html">Tasks for this day</a>
             <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="all-tasks" class="top-bar" aria-current="page" href="allTasks.html">All Tasks</a>
             
@@ -85,7 +85,9 @@
         </div>
         
         <div id="overdue-content">
-            <div id="overdue-tasks"></div>
+            <div id="overdue-tasks">
+
+            </div>
 
             <div id="expanded-task-dialog">
                 <div class="modal fade" id="overdue-expand-task" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
