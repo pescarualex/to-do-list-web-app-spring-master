@@ -5,7 +5,7 @@ import { createTask } from "/js/tasks.js";
 let API_URL = "http://localhost:8089/homepage";
 
 
-//get total tasks from API
+//get all tasks number from API
 $(document).ready(function() {
   $.ajax({
     url: API_URL + "/total-all-tasks-number",
@@ -21,7 +21,7 @@ $(document).ready(function() {
 });
 
 
-
+// get tasks title
   $.ajax({
     url: API_URL + '/total-task-number/all-tasks-titles',
     method: 'GET',
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
 
 
-// get total tasks for this day
+// get tasks number for this day
   $(document).ready(function() {
     $.ajax({
       url: API_URL + "/total-this-day-tasks-number",
@@ -60,6 +60,7 @@ $(document).ready(function() {
   });
 
 
+// get tasks title for this day
   $.ajax({
     url: API_URL + '/total-task-number/this-day-tasks-titles',
     method: 'GET',
@@ -83,10 +84,37 @@ $(document).ready(function() {
 
 
 
-  //get total tasks for this week
+  //get overduew tasks number
+  $(document).ready(function() {
+    $.ajax({
+      url: API_URL + "/overdue-tasks-number",
+      type: 'GET',
+      success: function(data) {
+        $('.all-tasks-card .overdue-tasks').text(data);
+        console.log("overduew tasks: " + data);
+        //createTask();
+      },
+      error: function(xhr, textStatus, errorThrown) {
+        console.log('Error:', textStatus);
+      }
+    });
+  });
 
-
-
-
-
-    //get total tasks for next week
+    //get overduew tasks title
+    $.ajax({
+      url: API_URL + '/overdue-tasks-number/tasks-title',
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        for (let i = 0; i < data.length; i++){
+          $("#overdue-tasks-title").append(`
+          <span class="title-tr">
+            <p>&#8226; ${data[i]}</p>
+          </span>
+      `);
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.error('Error:', textStatus, errorThrown);
+      }
+    });
