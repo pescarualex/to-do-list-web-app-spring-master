@@ -404,7 +404,7 @@ bottom: 0;
   height: 470px;
   padding: 5px;
   /* top: 7px; */
- box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 4px;
   background-color: #f8f8f8;
   resize: none;
@@ -472,3 +472,30 @@ bottom: 0;
 
 
 /* <li class="page-button" onclick="addClassSelected('mark${i+1}');" id="mark${i + 1}" data-page-index='${pageIndex}'>${pageIndex}</li> */
+
+
+
+/* search-box */
+.all-tasks-search-box, .overdue-search-box, .this-day-search-box {
+  margin-left: 70px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.all-tasks-search-box input, .overdue-search-box input, .this-day-search-box input {
+  width: 500px;
+  font-size: 15px;
+}
+
+.all-tasks-search-box button, .overdue-search-box button, this-day-search-box button {
+  border: none;
+  background-color: #0BDA51;
+  color: white;
+  border-radius: 10px;
+  padding: 5px 5px;
+
+}
+
+.all-tasks-search-box button:hover, .overdue-search-box button:hover, .this-day-search-box button:hover {
+  box-shadow: 0 8px 16px 0 rgba(83, 83, 83, 0.421);
+}

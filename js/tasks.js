@@ -37,16 +37,26 @@ window.ToDoList = {
     },
 
     
-    displayPage: async function (page) {
+    displayPage: async function (page, title = "") {
         let currentPage = 0;
         let pageSize = 20;
     
         try {
+
+            const requestData = {
+                page: page,
+                size: pageSize,
+                title: title
+            };
+    
             const response = await $.ajax({
-                url: ToDoList.API_URL + "?page=" + page + "&size=" + pageSize,
+                url: ToDoList.API_URL + "/any/",
                 method: "GET",
-                dataType: "json"
+                dataType: "json",
+                data: requestData
             });
+
+            // + "?page=" + page + "&size=" + pageSize + "&searchTitle=" + searchTitle
     
             $("#all-content #existing-tasks-fluid").empty();
             $.each(response.content, function(index, task) {
@@ -67,23 +77,32 @@ window.ToDoList = {
         }
     },
 
+ 
 
 
 
-    displayThisDayTasks: async function (page) {
+
+    displayThisDayTasks: async function (page, title ="") {
         let currentPage = 0;
         let pageSize = 20;
     
         try {
+
+            const requestData = {
+                page: page,
+                size: pageSize,
+                title: title
+            };
+
             const response = await $.ajax({
-                url: ToDoList.API_URL + "/this-day-tasks" + "?page=" + page + "&size=" + pageSize,
+                url: ToDoList.API_URL + "/this-day-tasks/",
                 method: "GET",
-                dataType: "json"
+                dataType: "json",
+                data: requestData
             });
     
             $("#this-day-tasks-content #all-tasks-this-day").empty();
             $.each(response.content, function(index, task) {
-                console.log(response.content);
                 $("#all-tasks-this-day").append(ToDoList.getTaskRow(task));
             });
     
@@ -101,20 +120,26 @@ window.ToDoList = {
         }
     },
 
-    displayOverdueTasks: async function (page) {
+    displayOverdueTasks: async function (page, title = "") {
         let currentPage = 0;
         let pageSize = 20;
     
         try {
+            const requestData = {
+                page: page,
+                size: pageSize,
+                title: title
+            };
+
             const response = await $.ajax({
-                url: ToDoList.API_URL + "/overdue-tasks" + "?page=" + page + "&size=" + pageSize,
+                url: ToDoList.API_URL + "/overdue-tasks/",
                 method: "GET",
-                dataType: "json"
+                dataType: "json",
+                data: requestData
             });
     
             $("#overdue-content #overdue-tasks").empty();
             $.each(response.content, function(index, task) {
-                console.log(response.content);
                 $("#overdue-tasks").append(ToDoList.getTaskRow(task));
             });
     
@@ -160,8 +185,7 @@ window.ToDoList = {
             contentType: "application/json",
             data: JSON.stringify(body)
         }).done(function(){
-
-                ToDoList.displayPage(0);
+            ToDoList.displayPage(0);
         })
     },
 
@@ -177,7 +201,8 @@ window.ToDoList = {
             contentType: "application/json",
             data: JSON.stringify(body)
         }).done(function(){
-                ToDoList.displayPage(0);
+            ToDoList.displayPage(0);
+            window.location.reload();
         })
     },
 
@@ -188,6 +213,7 @@ window.ToDoList = {
             method: 'DELETE'
         }).done(function(){
             ToDoList.displayPage(0);
+            window.location.reload();
         })
     },
     
@@ -228,26 +254,13 @@ window.ToDoList = {
                         </div> 
 
                         <button type="button" id="save-task" class="btn btn-secondary save-task" data-id="${task.id}" data-bs-dismiss="modal">Save Task</button>
-
-                        <div class="toast">
-                            <div class="toast-header">
-                            <strong class="mr-auto">Success</strong>
-                            <small>LocalDate.now():</small>
-                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
-                                <span>&times;</span>
-                            </button>
-                            </div>
-                            <div class="toast-body">
-                            Task saved successfully!
-                            </div>
-                        </div>
                     </div>
-    </div>
+                </div>
         `
     },
 
     displayedClikedTask: function(task) {
-        $('#tasks-content #expanded-task-dialog #expand-task .modal-dialog').html(ToDoList.getClickedTask(task));
+        $('.tasks-content #expanded-task-dialog #expand-task .modal-dialog').html(ToDoList.getClickedTask(task));
     },
 
 
@@ -309,6 +322,15 @@ window.ToDoList = {
             ToDoList.updateTask(id, checkboxChecked);
         });
 
+        $('#overdue-tasks').delegate('.mark-done', 'change', function (event) {
+            event.preventDefault();
+
+            const id = $(this).data('id');
+            const checkboxChecked = $(this).is(':checked');
+
+            ToDoList.updateTask(id, checkboxChecked);
+        });
+
         $('#all-tasks-this-day').delegate('.mark-done', 'change', function (event) {
             event.preventDefault();
 
@@ -317,6 +339,8 @@ window.ToDoList = {
 
             ToDoList.updateTask(id, checkboxChecked);
         });
+
+
 
 
         let title = "";
@@ -335,16 +359,10 @@ window.ToDoList = {
             ToDoList.updateTaskContent(id, trimedTitle, trimedDescription);
         });
 
-        $('#task-modal-content').delegate('.save-task', 'click', function (event) {
-            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-            var toastList = toastElList.map(function(toastEl) {
-            // Creates an array of toasts (it only initializes them)
-              return new bootstrap.Toast(toastEl) // No need for options; use the default options
-            });
-           toastList.forEach(toast => toast.show()); // This show them
-        
-            console.log(toastList); // Testing to see if it works
-          });
+
+
+
+
 
         $('#existing-tasks-fluid').delegate('.delete-link', 'click', function (event) {
             event.preventDefault();
@@ -353,6 +371,26 @@ window.ToDoList = {
             ToDoList.deleteTask(id);
         });
 
+        $('#all-tasks-this-day').delegate('.delete-link', 'click', function (event) {
+            event.preventDefault();
+
+            const id = $(this).data('id');
+            ToDoList.deleteTask(id);
+        });
+
+        $('#overdue-tasks').delegate('.delete-link', 'click', function (event) {
+            event.preventDefault();
+
+            const id = $(this).data('id');
+            ToDoList.deleteTask(id);
+        });
+
+
+
+
+
+
+
         $('#existing-tasks-fluid').delegate('#expand-task-icon', 'click', function (event){
             event.preventDefault;
 
@@ -360,29 +398,91 @@ window.ToDoList = {
             ToDoList.getTask(id);
         });
 
+        $('#all-tasks-this-day').delegate('#expand-task-icon', 'click', function (event){
+            event.preventDefault;
 
-        //move pages
-        $("#pagination").on("click", "#page-btn", function() {
-            let page = $(this).index();
-            let currentPage = page;
-            ToDoList.displayPage(currentPage);
+            const id = $(this).data('id');
+            ToDoList.getTask(id);
         });
 
 
-        // $(".previous-page").on("click", function(){
+        $('#overdue-tasks').delegate('#expand-task-icon', 'click', function (event){
+            event.preventDefault;
+
+            const id = $(this).data('id');
+            ToDoList.getTask(id);
+        });
+
+
+
+
+        //move pages
+        // $("#pagination").on("click", "#page-btn", function() {
         //     let page = $(this).index();
-        //     let currentPage = page - 1;
+        //     let currentPage = page;
         //     ToDoList.displayPage(currentPage);
         // });
 
 
 
+        $("#search-all-tasks").on("input", function() {
+            // Obține valoarea introdusă în input-ul de căutare
+            const searchKeyword = $(this).val();
+            
+            // Verifică dacă input-ul este gol
+            if (searchKeyword.trim() === "") {
+                // Dacă input-ul este gol, efectuează o căutare automată
+                ToDoList.displayPage(0, "");
+            }
+        });
+
+        $("#search-all-tasks").on("input", function() {
+            const searchKeyword = $(this).val();
+
+            ToDoList.displayPage(0, searchKeyword);
+        });
 
 
 
 
 
+        $("#search-overdue-tasks").on("input", function() {
+            // Obține valoarea introdusă în input-ul de căutare
+            const searchKeyword = $(this).val();
+            
+            // Verifică dacă input-ul este gol
+            if (searchKeyword.trim() === "") {
+                // Dacă input-ul este gol, efectuează o căutare automată
+                ToDoList.displayOverdueTasks(0, "");
+            }
+        });
 
+        $("#search-overdue-tasks").on("input", function() {
+            const searchKeyword = $(this).val();
+
+            ToDoList.displayOverdueTasks(0, searchKeyword);
+        });
+
+
+        
+
+
+        $("#search-this-day-tasks").on("input", function() {
+            // Obține valoarea introdusă în input-ul de căutare
+            const searchKeyword = $(this).val();
+            
+            // Verifică dacă input-ul este gol
+            if (searchKeyword.trim() === "") {
+                // Dacă input-ul este gol, efectuează o căutare automată
+                ToDoList.displayThisDayTasks(0, "");
+            }
+        });
+
+        $("#search-this-day-tasks").on("input", function() {
+            const searchKeyword = $(this).val();
+
+            ToDoList.displayThisDayTasks(0, searchKeyword);
+        });
 
         
     }
@@ -394,7 +494,7 @@ export function createTask(){
     ToDoList.createTask();
 }
 
-ToDoList.displayPage(0);
+ToDoList.displayPage(0, "");
 ToDoList.displayThisDayTasks(0);
 ToDoList.displayOverdueTasks(0);
 ToDoList.bindEvents();

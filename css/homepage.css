@@ -1,7 +1,7 @@
   .all-tasks-options {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
     margin-left: 80px;
   }
 
@@ -91,3 +91,20 @@
   .title-tr p{
     padding-left: 10px 0;
   }
+
+
+
+  .overdue-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/overdue.png');
+    background-size: auto;
+    background-position: center;
+    opacity: 0.3;
+    z-index: -1; 
+    
+  }
+

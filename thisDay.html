@@ -21,6 +21,8 @@
 </head>
 <body>
 
+
+
     <div class="navbar-parent">
         <nav class="navbar navbar-expand-sm flex-column navbar-dark bg-dark">
             <div class="logo">
@@ -43,6 +45,11 @@
             <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="next-week" class="top-bar" href="nextWeek.html">Tasks for next week</a>
             <a class="flex-sm-fill text-sm-center nav-link" onclick="addClassActive(this);" id="this-month" class="top-bar" href="thisMonth.html">Tasks for this month</a> -->
         </nav>
+    </div>
+
+    <div class="this-day-search-box">
+        <input type="text" id="search-this-day-tasks" placeholder="search for task title">
+        <!-- <button type="submit" id="search-btn">Search</button> -->
     </div>
 
 
@@ -84,7 +91,7 @@
             </div>
         </div>
         
-        <div id="this-day-tasks-content">
+        <div id="this-day-tasks-content" class="tasks-content">
             <div id="all-tasks-this-day"></div>
 
             <div id="expanded-task-dialog">

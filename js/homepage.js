@@ -91,7 +91,6 @@ $(document).ready(function() {
       type: 'GET',
       success: function(data) {
         $('.all-tasks-card .overdue-tasks').text(data);
-        console.log("overduew tasks: " + data);
         //createTask();
       },
       error: function(xhr, textStatus, errorThrown) {
