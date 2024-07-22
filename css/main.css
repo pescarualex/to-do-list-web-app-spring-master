@@ -1,4 +1,4 @@
- body {
+body {
     margin: 0;
     padding: 0;
     background-color: white;
@@ -7,495 +7,462 @@
     width: 100%;
 }
 
-
 ::-webkit-scrollbar {
-  width: 7px;
+    width: 7px;
 }
-
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+    background: #f1f1f1;
 }
- 
 
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+    background: #888;
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+    background: #555;
 }
 
-
 #all-content {
-  /* position: relative; */
-  margin-left: 55px;
-  margin-bottom: 10px;
-  height: 100%;
-  overflow-y: scroll;
-  top: 0;
-  overflow: auto;
-} 
-
-
-
-
+    /* position: relative; */
+    margin-left: 55px;
+    margin-bottom: 10px;
+    height: 100%;
+    overflow-y: scroll;
+    top: 0;
+    overflow: auto;
+}
 
 /* Navbar and buttons */
 
-.logo img{
-  height: 40px;
-  width: 100%;
+.logo img {
+    height: 40px;
+    width: 100%;
 }
 
 .navbar-parent {
-  width: 55px;
-  position: fixed;
+    width: 55px;
+    position: fixed;
 }
 
 .navbar {
-  width: 55px;
-  height: 100vh;
+    width: 55px;
+    height: 100vh;
 }
-  
+
 .navbar a {
-  color: white;
-  padding: 12px;
-  text-decoration: none;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
 }
 
 .navbar a.active {
-  color: white;
-  text-align: center;
-  font-size: 23px;
-  border: none;
+    color: white;
+    text-align: center;
+    font-size: 23px;
+    border: none;
 }
 
 .navbar a:hover {
-  color: white;
-  background-color: green;
+    color: white;
+    background-color: green;
 }
 
 .create-task-button-countainer {
-  text-align: center;
+    text-align: center;
 }
 
 .create-task-button {
-  color: white;
-  background-color: inherit;
-  padding: 14px;
-  font-size: 25px;
-  border: none;
+    color: white;
+    background-color: inherit;
+    padding: 14px;
+    font-size: 25px;
+    border: none;
 }
 
 .create-task-button-countainer :hover {
-  color: white;
-  background-color: green;
-} 
+    color: white;
+    background-color: green;
+}
 
 /* ____________________________________________ */
 
-
-
 /* all tasks navigation bar */
 
- .all-tasks-tab .nav {
-  position: sticky;
-  margin-left: 55px;
-  margin-bottom: 5px;
-  border-bottom: 7px solid rgb(245,245,245);
+.all-tasks-tab .nav {
+    position: sticky;
+    margin-left: 55px;
+    margin-bottom: 5px;
+    border-bottom: 7px solid rgb(245, 245, 245);
 }
 
 .all-tasks-tab .nav-link {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .all-tasks-tab .nav-link:hover {
-  color: green;
-  border-bottom: 3px solid green;
+    color: green;
+    border-bottom: 3px solid green;
 }
 
 .all-tasks-tab .active {
-  color: green !important;
-  background-color: white !important;
-  border-bottom: 3px solid green !important;
-} 
-
-
+    color: green !important;
+    background-color: white !important;
+    border-bottom: 3px solid green !important;
+}
 
 /* Create Task modal */
 
- .modal-content {
-  width: 100%;
-  height: 850px;
-  border: none;
-  overflow: visible;
-  z-index: 1;
+.modal-content {
+    width: 100%;
+    height: 850px;
+    border: none;
+    overflow: visible;
+    z-index: 1;
 }
 
 .modal-content .close {
-  border: none;
-  background-color: inherit;
+    border: none;
+    background-color: inherit;
 }
 
 .modal-content .close:hover {
-  color: white;
-  background-color: green;
+    color: white;
+    background-color: green;
 }
 
 .modal-header h3 {
-text-align: left;
-font-size: 20px;
+    text-align: left;
+    font-size: 20px;
 }
 
 .modal-header .close {
-  font-size: 20px;
+    font-size: 20px;
 }
 
-.modal-content .task-title-field, #task-description, input[type=date] {
-  width: 100%;
-  padding: 8px 10px;
+.modal-content .task-title-field,
+#task-description,
+input[type="date"] {
+    width: 100%;
+    padding: 8px 10px;
 }
 
 .modal-content label {
-  font-size: 15px;
-  left: 5px;
-  top: 10px;
+    font-size: 15px;
+    left: 5px;
+    top: 10px;
 }
 
 .modal-content .task-title-field {
-  position: relative;
-  font-size: 15px;
-  width: 100%;
-  height: 100px;
-  padding: 5px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  resize: none;
-  overflow-y: scroll;
-} 
+    position: relative;
+    font-size: 15px;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+    overflow-y: scroll;
+}
 
 /* placeholder size */
 
- .modal-content #countCharactersTitle {
-  font-size: 10px;
-  position: absolute;
-  right: 20px;
-  top: 158px;
+.modal-content #countCharactersTitle {
+    font-size: 10px;
+    position: absolute;
+    right: 20px;
+    top: 158px;
 }
 
 .modal-content #task-description {
-  position: relative;
-  font-size: 15px;
-  width: 100%;
-  height: 370px;
-  padding: 5px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  resize: none;
-  overflow-y: scroll;
+    position: relative;
+    font-size: 15px;
+    width: 100%;
+    height: 370px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    resize: none;
+    overflow-y: scroll;
 }
 
 .modal-content #countCharactersDescription {
-  font-size: 10px;
-  position: absolute;
-  right: 20px;
-  bottom: 103px;
-} */
+    font-size: 10px;
+    position: absolute;
+    right: 20px;
+    bottom: 103px;
+}
+*/
 
 /* placeholder size */
 
  .modal-content input[type=date] {
-  width: 100%;
-  height: 30px;
-  padding: 12px 10px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  font-size: 14px;
+    width: 100%;
+    height: 30px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
 }
 
-
 ::-webkit-input-placeholder {
-  font-size: 10px;
+    font-size: 10px;
 }
 
 .modal-footer button {
-  font-size: 15px;
-  border: none;
-  background-color: inherit;
-  color: black;
+    font-size: 15px;
+    border: none;
+    background-color: inherit;
+    color: black;
 }
 
 .modal-footer button:hover {
-  color: white;
-  background-color: green;
+    color: white;
+    background-color: green;
 }
-
 
 #tasks-content #existing-tasks-fluid {
-  margin: 20px 40px;
+    margin: 20px 40px;
 }
 
-
-
-
 .card {
-  float:left;
-  width: 18rem;
-  height: 450px; 
-  margin-left: 15px;
-  margin-bottom: 10px;
-  background-color: white;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
-  font-family: arial;
-
+    float: left;
+    width: 18rem;
+    height: 450px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    font-family: arial;
 }
 
 .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 /*  */
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(83, 83, 83, 0.421);
+    box-shadow: 0 8px 16px 0 rgba(83, 83, 83, 0.421);
 }
 
 .card-body {
-  padding: 5px !important;
+    padding: 5px !important;
 }
 
-.card-title { 
-  text-align: left;
-  padding: 5px !important;
-  font-size: 18px;
-  width: 100%;
-  height: auto;
-  max-height: 70px;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+.card-title {
+    text-align: left;
+    padding: 5px !important;
+    font-size: 18px;
+    width: 100%;
+    height: auto;
+    max-height: 70px;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 
 .card-description {
-  text-align: left;
-  width: 100%;
-  font-size: 15px;
-  height: auto;
-  max-height: 230px;
-  -webkit-line-clamp: 20;
-  overflow: hidden;
-  margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+    font-size: 15px;
+    height: auto;
+    max-height: 230px;
+    -webkit-line-clamp: 20;
+    overflow: hidden;
+    margin-bottom: 5px;
 }
 
-
-
-
-
-
-
-
 .card-body .card-deadline {
-display: flex;
-font-size: 15px;
-width: 95%;
-height: 7%;
-position: absolute;
-bottom: 23px;
+    display: flex;
+    font-size: 15px;
+    width: 95%;
+    height: 7%;
+    position: absolute;
+    bottom: 23px;
 }
 
 .card-body .task-options {
-display: flex;
-font-size: 15px;
-width: 95%;
-position: absolute;
-bottom: 0;
+    display: flex;
+    font-size: 15px;
+    width: 95%;
+    position: absolute;
+    bottom: 0;
 }
 
 .task-options div {
-  margin-right: 3px;
+    margin-right: 3px;
 }
 
 .task-options #expand-task-icon {
-  display: flex;
-  font-size: 15px;
-  background-color: white;
-  border: none;
-  position: absolute;
-  right: 2px;
-  padding: 3px 5px;
+    display: flex;
+    font-size: 15px;
+    background-color: white;
+    border: none;
+    position: absolute;
+    right: 2px;
+    padding: 3px 5px;
 }
 
-
 #tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
 
-  position: relative;
-  bottom: 30px;
-  left: 80%;
-  margin-left: -30px;
+    position: relative;
+    bottom: 30px;
+    left: 80%;
+    margin-left: -30px;
 }
 
 #expand-task-icon:hover + #tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
 
-
-
-
-
-
-
-
 .entirely-task-title-countainer .entirely-task-title {
-  position: relative;
-  font-size: 15px;
-  width: 100%;
-  height: 100px;
-  padding: 5px;
-  border: 1px solid #ccc;;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;
+    position: relative;
+    font-size: 15px;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
 }
 
 .entirely-task-title-countainer #remainingCharactTitle {
-  position: absolute;
-  font-size: 10px;
-  right: 20px;
-  top: 150px;
+    position: absolute;
+    font-size: 10px;
+    right: 20px;
+    top: 150px;
 }
-
 
 #task-modal-content .entirely-task-deadline p {
-  font-size: 16px;
-  position: absolute;
-  bottom: 0px;
-  left: 10px;
-  border: 1px solid #555555;
-  text-align: center;
-  padding: 12px 26px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    border: 1px solid #555555;
+    text-align: center;
+    padding: 12px 26px;
 }
 
-
 .entirely-task-description-countainer .entirely-task-description {
-  position: relative;
-  font-size: 15px;
-  width: 100%;
-  height: 470px;
-  padding: 5px;
-  /* top: 7px; */
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;
-  border: 2px solid #ccc;;
+    position: relative;
+    font-size: 15px;
+    width: 100%;
+    height: 470px;
+    padding: 5px;
+    /* top: 7px; */
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    border: 2px solid #ccc;
 }
 
 .entirely-task-description-countainer #remainingCharactDescription {
-  position: absolute;
-  font-size: 10px;
-  right: 20px;
-  bottom: 22px;
+    position: absolute;
+    font-size: 10px;
+    right: 20px;
+    bottom: 22px;
 }
-
-
-
-
 
 /* Stilizarea elementelor de paginare */
 
 #pagination {
-  position: fixed;
-  bottom: 15px;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 25%;
-  height: 40px;
-  width: 50%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  border-radius: 10px;
-  display: flex; /* Utilizăm flexbox pentru a alinia elementele pe aceeași linie */
+    position: fixed;
+    bottom: 15px;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 25%;
+    height: 40px;
+    width: 50%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+    display: flex; /* Utilizăm flexbox pentru a alinia elementele pe aceeași linie */
 }
 
-#pagination-marks{
-  border: 0;
-  margin: 0;
-  padding: 0;
-  margin-top: auto;
-  margin-bottom: auto;
+#pagination-marks {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #pagination a {
-  align-items: center;
-  color: black;
-  margin: 5px 10px;
-  font-size: 20px;
-  font-weight: bold;
-  transition: all 0.2s ease;
-  text-decoration: none;
+    align-items: center;
+    color: black;
+    margin: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .selected {
-  color: green;
-  border-bottom: 1px solid green;
-  border-radius: 5px;
+    color: green;
+    border-bottom: 1px solid green;
+    border-radius: 5px;
 }
-
 
 #pagination a:hover {
-  color: green;
-  border-bottom: 1px solid green;
-  border-radius: 5px;
+    color: green;
+    border-bottom: 1px solid green;
+    border-radius: 5px;
 }
-
-
 
 /* <li class="page-button" onclick="addClassSelected('mark${i+1}');" id="mark${i + 1}" data-page-index='${pageIndex}'>${pageIndex}</li> */
 
-
-
 /* search-box */
-.all-tasks-search-box, .overdue-search-box, .this-day-search-box {
-  margin-left: 70px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.all-tasks-search-box,
+.overdue-search-box,
+.this-day-search-box {
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.all-tasks-search-box input, .overdue-search-box input, .this-day-search-box input {
-  width: 500px;
-  font-size: 15px;
+.all-tasks-search-box input,
+.overdue-search-box input,
+.this-day-search-box input {
+    width: 500px;
+    font-size: 15px;
 }
 
-.all-tasks-search-box button, .overdue-search-box button, this-day-search-box button {
-  border: none;
-  background-color: #0BDA51;
-  color: white;
-  border-radius: 10px;
-  padding: 5px 5px;
-
+.all-tasks-search-box button,
+.overdue-search-box button,
+this-day-search-box button {
+    border: none;
+    background-color: #0bda51;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 5px;
 }
 
-.all-tasks-search-box button:hover, .overdue-search-box button:hover, .this-day-search-box button:hover {
-  box-shadow: 0 8px 16px 0 rgba(83, 83, 83, 0.421);
+.all-tasks-search-box button:hover,
+.overdue-search-box button:hover,
+.this-day-search-box button:hover {
+    box-shadow: 0 8px 16px 0 rgba(83, 83, 83, 0.421);
 }

@@ -1,11 +1,11 @@
-  .all-tasks-options {
+.all-tasks-options {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     margin-left: 80px;
-  }
+}
 
-  .all-tasks-card {
+.all-tasks-card {
     background-color: #fff;
     width: auto;
     max-width: 800px;
@@ -16,33 +16,33 @@
     margin-right: 30px;
     margin-top: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: -1;
-  }
+}
 
-  
-  .all-tasks-card:hover {
+.all-tasks-card:hover {
     box-shadow: 0 8px 16px 0 rgba(83, 83, 83, 0.421);
-  }
+}
 
-  .display-all-tasks {
+.display-all-tasks {
     text-decoration: none;
     color: black;
-  }
+}
 
-  .display-all-tasks:hover {
+.display-all-tasks:hover {
     text-decoration: none;
     color: green;
-  }
+}
 
-
-  .all-tasks-title {
+.all-tasks-title {
     position: relative;
     border-bottom: 1px solid black;
     text-align: center;
-  }
+}
 
-  .tasks-number {
+.tasks-number {
     position: relative;
     display: flex;
     padding: 5px 30px;
@@ -50,61 +50,55 @@
     font-size: 50px;
     border-bottom: 1px solid black;
     justify-content: space-between;
-  }
+}
 
-  .all-tasks{
+.all-tasks {
     display: flex;
     font-size: 25px;
     align-items: center;
     justify-content: center;
-  }
+}
 
-
-
-  .tasks-number .total-tasks-number{
+.tasks-number .total-tasks-number {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0BDA51;
+    background-color: #0bda51;
     color: white;
     font-size: 30px;
-  }
+}
 
-  .tasks-number .overdue-tasks {
+.tasks-number .overdue-tasks {
     background-color: red;
-  }
+}
 
- .tasks-number .this-day-tasks {
+.tasks-number .this-day-tasks {
     background-color: rgb(253, 238, 22);
-  }
+}
 
-  .table-body {
+.table-body {
     width: 100%;
     height: 400px;
     overflow: hidden;
     -webkit-line-clamp: 5;
-  }
+}
 
-  .title-tr p{
+.title-tr p {
     padding-left: 10px 0;
-  }
+}
 
-
-
-  .overdue-card {
+.overdue-card {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/overdue.png');
+    background-image: url("../img/overdue.png");
     background-size: auto;
     background-position: center;
     opacity: 0.3;
-    z-index: -1; 
-    
-  }
-
+    z-index: -1;
+}
